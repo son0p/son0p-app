@@ -66,8 +66,8 @@ function FreqToLong(Btext, form) {
 	var waveLenght = vsound / B;
 	var quarterWaveLenght = waveLenght / 4;
 	form.LongFreq.value = waveLenght;
-	form.quarterWavelenghtDistance.value = waveLenght / 4; 
-	form.quarterWavelenghtTime.value = (quarterWaveLenght * 1000) / vsound; 
+	form.quarterWavelenghtDistance.value = waveLenght / 4;
+	form.quarterWavelenghtTime.value = (quarterWaveLenght * 1000) / vsound;
 	//r;
 }
 
@@ -117,9 +117,9 @@ Para sonido 	     . m*#*%-+#m*%%#+m+-**+m.+.-.%
     Separe los subs <INPUT NAME="quarterWavelenghtDistance" TYPE=text SIZE=5> Metros (1/4 tiempo) <br>
     Agregue <INPUT NAME="quarterWavelenghtTime" TYPE=text SIZE=5> milisegundos de retraso(delay) al sub de atrás, la polaridad se puede invertir en cualquiera de los dos.
 </P>
-<pre> 
+<pre>
 
- Retrazos para End Fire a <INPUT NAME="endFireDistance" TYPE=text SIZE=2 > mt. 
+ Retrazos para End Fire a <INPUT NAME="endFireDistance" TYPE=text SIZE=2 > mt.
   <INPUT NAME="submit" TYPE=Button VALUE="Calcule" onClick="MetersToTime(this.form.endFireDistance.value, this.form)">
   <INPUT NAME="endFireDelay0" TYPE=text SIZE=5>ms.
   <INPUT NAME="endFireDelay1" TYPE=text SIZE=5>ms.
@@ -132,7 +132,7 @@ Para sonido 	     . m*#*%-+#m*%%#+m+-**+m.+.-.%
 
   +----------------------+
   |  Alinear demorados   |
-  +----------------------+     
+  +----------------------+
 </pre>
 
 <p>De Distancia a Tiempo  --->  Para
@@ -158,6 +158,9 @@ Para sonido 	     . m*#*%-+#m*%%#+m+-**+m.+.-.%
     <INPUT NAME="freq" TYPE=text  SIZE=5>
 Hertz</P>
 
+<p>
+<a href="mix.wav"> mix.wav</a>
+
 
 
 
@@ -172,17 +175,17 @@ Hertz</P>
         \---  		    /-------
             \--     /-------
 	       \----
-		
+
 
 </pre>
 
 	Retrazos para End Fire a 1 mt. (incrementos de 2.9ms): 0ms -- 2.9ms -- 5.8ms -- 8.7ms
 			<p>
 			Visualización: <a href="http://bobmccarthy.wordpress.com/2010/04/15/phase-wavelengths-the-end-fire-cardioid-array-made-visible/">http://bobmccarthy.wordpress.com/2010/04/15/phase-wavelengths-the-end-fire-cardioid-array-made-visible/</a></p>
-			
+
 			punto de partida para hacer un arco de subs :
 			tomado de:<a href="http://www.electrovoice.com/sitefiles/downloads/wp%20-%20Subwoofer%20Arrays%20v04%20.pdf">http://www.electrovoice.com/sitefiles/downloads/wp%20-%20Subwoofer%20Arrays%20v04%20.pdf</a>
-			
+
 <ul>Delay values,
 Left to right
 <li>12 mSec</li>
@@ -201,12 +204,3 @@ Left to right
 
 </body>
 </html>
-	
-
-			
-			
-			
-		
-
-
-
