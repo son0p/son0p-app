@@ -92,6 +92,10 @@ function TimeToMeters(Dtext, form) {
     form.endFireDelay1.value = (D/1000) * vsound;
 }
 
+var exec = require('child_process').exec;
+exec('sox -m 1.wav 2.wav 3.wav mix.wav', function (error, stdout, stderr) {
+  // output is in stdout
+});
 // - End of Jav-.cr... + m->
 </SCRIPT>
 
@@ -157,13 +161,6 @@ Para sonido 	     . m*#*%-+#m*%%#+m+-**+m.+.-.%
     <INPUT NAME="submit" TYPE=Button VALUE="Frecuencia" onClick="MidiToF(this.form.notamidi.value, this.form)">
     <INPUT NAME="freq" TYPE=text  SIZE=5>
 Hertz</P>
-
-<p>
-<a href="mix.wav"> mix.wav</a>
-
-
-
-
 </FORM>
 
 
@@ -201,6 +198,8 @@ Left to right
 <li>7 mSec</li>
 <li>12 mSec</li></ul>
 
+<p>
+<a href="mix.wav"> mix.wav</a>
 
 </body>
 </html>
