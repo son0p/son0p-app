@@ -45,7 +45,7 @@ code {
 
 
 
-<SCRIPT LANGUAGE="JavaScript">
+<script>
 <!-- Beginning of JavaScript -
 
 var vsound = 340;
@@ -66,6 +66,7 @@ function FreqToLong(Btext, form) {
 	var waveLenght = vsound / B;
 	var quarterWaveLenght = waveLenght / 4;
 	form.LongFreq.value = waveLenght;
+  form.waveLenghtTime.value = 1 / B;
 	form.quarterWavelenghtDistance.value = waveLenght / 4;
 	form.quarterWavelenghtTime.value = (quarterWaveLenght * 1000) / vsound;
 	//r;
@@ -92,12 +93,16 @@ function TimeToMeters(Dtext, form) {
     form.endFireDelay1.value = (D/1000) * vsound;
 }
 
+function TimeToPhase(freq2, phase, form) {
+  form.time.value = 1/freq2*(phase/360)*1000;
+  }
+
 var exec = require('child_process').exec;
 exec('sox -m 1.wav 2.wav 3.wav mix.wav', function (error, stdout, stderr) {
   // output is in stdout
 });
 // - End of Jav-.cr... + m->
-</SCRIPT>
+</script>
 
 
 <FORM>
@@ -117,9 +122,13 @@ Para sonido 	     . m*#*%-+#m*%%#+m+-**+m.+.-.%
     <INPUT NAME="submit" TYPE=Button VALUE="Calcule" onClick="FreqToLong(this.form.freq1.value, this.form)"><br><br><br>
 
     <INPUT NAME="LongFreq" TYPE=text SIZE=5>Mts. Longitud de onda     <img src ="http://jardincosmico.net/files/unloquer/waveLenght.gif"><br><br>
+    <INPUT NAME ="waveLenghtTime" TYPE=text SIZE=5>ms. un período ?<br><br><br>
     <b> Para sub cardioide:</b><br>
     Separe los subs <INPUT NAME="quarterWavelenghtDistance" TYPE=text SIZE=5> Metros (1/4 tiempo) <br>
     Agregue <INPUT NAME="quarterWavelenghtTime" TYPE=text SIZE=5> milisegundos de retraso(delay) al sub de atrás, la polaridad se puede invertir en cualquiera de los dos.
+    <br>
+
+
 </P>
 <pre>
 
@@ -150,11 +159,13 @@ Para sonido 	     . m*#*%-+#m*%%#+m+-**+m.+.-.%
     <INPUT NAME="time1" TYPE=text SIZE=5> Milisegundos
     <INPUT NAME="submit" TYPE=Button VALUE="Dame metros" onClick="TimeToMeters(this.form.time1.value, this.form)">
     <INPUT NAME="timeMeters" TYPE=text SIZE=5>Metros</P>
+<br>
 
-
-
-<pre>
-</pre>
+<!-- Desplazamiento de Fase según un tiempo y frecuencia -->
+  <p>
+  Frecuencia <INPUT NAME="freq2" TYPE=text SIZE=5> Hz,  Desplazamiento  <INPUT NAME="phase" TYPE=text SIZE=5> grados.
+  <INPUT NAME="submit" TYPE=Button VALUE="Desplazamiento de Fase en tiempo" onClick="TimeToPhase(this.form.freq2.value, this.form.phase.value, this.form)"> <INPUT NAME="time" TYPE=text SIZE=5>ms.
+<hr>
 <p>Numero Nota MIDI:
 
     <INPUT NAME="notamidi" TYPE=text SIZE=3 PLACEHOLDER="Nota Midi">
