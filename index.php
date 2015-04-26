@@ -64,9 +64,9 @@ function freqToLong(freq, form) {
 	form.quarterWavelenghtTime.value = (quarterWaveLenght * 1000) / vsound;
 }
 
-function metersToTime(Ctext, form) {
+function endFire(Ctext, form) {
 	var C = parseFloat(Ctext);
-	form.metersTime.value = (C*1000) / vsound;
+
 	form.endFireDelay0.value = 0;
 	form.endFireDelay1.value = (C*1000) / vsound;
 	endFireDelay1 = (C*1000) / vsound;
@@ -76,6 +76,11 @@ function metersToTime(Ctext, form) {
 	form.endFireDelay5.value = endFireDelay1 * 5;
 	form.endFireDelay6.value = endFireDelay1 * 6;
 }
+
+function metersToTime(meters, form){
+  form.metersTime.value = (meters*1000) / vsound;
+}
+
 
 function timeToMeters(Dtext, form) {
 	var D = parseFloat(Dtext);
@@ -126,10 +131,12 @@ Para sonido 	     . m*#*%-+#m*%%#+m+-**+m.+.-.%
   Frecuencia <INPUT NAME="freq2" TYPE=text SIZE=5> Hz,  Desplazamiento  <INPUT NAME="phase" TYPE=text SIZE=5> grados.
   <INPUT NAME="submit" TYPE=Button VALUE="Desplazamiento de Fase en tiempo" onClick="timeToPhase(this.form.freq2.value, this.form.phase.value, this.form)"> <INPUT NAME="time" TYPE=text SIZE=5>ms.
 </P>
+</FORM>
 <hr>
+<FORM>
 <pre>
   Retrazos para End Fire a <INPUT NAME="endFireDistance" TYPE=text SIZE=2 > mt.
-  <INPUT NAME="submit" TYPE=Button VALUE="Calcule" onClick="metersToTime(this.form.endFireDistance.value, this.form)">
+  <INPUT NAME="submit" TYPE=Button VALUE="Calcule" onClick="endFire(this.form.endFireDistance.value, this.form)">
   <INPUT NAME="endFireDelay0" TYPE=text SIZE=5>ms.
   <INPUT NAME="endFireDelay1" TYPE=text SIZE=5>ms.
   <INPUT NAME="endFireDelay2" TYPE=text SIZE=5>ms.
